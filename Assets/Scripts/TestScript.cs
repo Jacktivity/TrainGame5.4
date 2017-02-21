@@ -3,6 +3,11 @@ using System.Collections;
 
 public class TestScript : MonoBehaviour {
 
+	public bool canTurnLeft;
+	public bool canTurnRight;
+	public bool waitingToTurn;
+	public GameObject turn;
+	public GameObject rightTurn;
 	public bool turnLeft;
 	public bool turnRight;
 	public bool onLeft;
@@ -15,11 +20,15 @@ public class TestScript : MonoBehaviour {
 	void Start () 
 	{
 
-		rotation = 45;
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+
+		canTurnLeft = turn.GetComponent<TurnPoint>().canTurn;
+		canTurnRight = rightTurn.GetComponent<turnPointRight>().canTurnRight;
+
 
 		onLeft = (transform.position.x < -16);
 		onRight = (transform.position.x > 16);
@@ -29,34 +38,44 @@ public class TestScript : MonoBehaviour {
 		{
 			if(!turnLeft)
 			{
+				waitingToTurn = true;
 				turnRight = true;
-				onLeft = false;
-				onMid = false;
-				GetComponent<Rigidbody2D>().velocity = new Vector2 (speed, GetComponent<Rigidbody2D>().velocity.y);
-				transform.rotation = Quaternion.Euler(0,0,-rotation);	
 			}
 			else
 			{
 				turnLeft = false;
 			}
-	
 
 		}
 		if(Input.GetKeyDown(KeyCode.A))
 		{
+			
 			if (!turnRight)
 			{
+				waitingToTurn = true;
 				turnLeft = true;
-				onRight = false;
-				onMid = false;
-				GetComponent<Rigidbody2D> ().velocity = new Vector2 (-speed, GetComponent<Rigidbody2D> ().velocity.y);
-				transform.rotation = Quaternion.Euler(0,0,rotation);	
 			} 
 			else 
 			{
 				turnRight = false;
 			}
 
+		}
+		if (canTurnRight && turnRight) 
+		{
+			onLeft = false;
+			onMid = false;
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (speed, GetComponent<Rigidbody2D> ().velocity.y);
+			transform.rotation = Quaternion.Euler (0, 0, -rotation);	
+			waitingToTurn = false;
+		}
+		if (canTurnLeft && turnLeft) 
+		{
+			onRight = false;
+			onMid = false;
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (-speed, GetComponent<Rigidbody2D> ().velocity.y);
+			transform.rotation = Quaternion.Euler (0, 0, rotation);	
+			waitingToTurn = false;
 		}
 		if (onLeft) 
 		{
@@ -74,8 +93,11 @@ public class TestScript : MonoBehaviour {
 		}
 		if (onMid) 
 		{
-			turnRight = false;
-			turnLeft = false;
+			if (!waitingToTurn) 
+			{
+				turnRight = false;
+				turnLeft = false;
+			}
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, GetComponent<Rigidbody2D> ().velocity.y);
 			transform.position = new Vector2(0.0f, GetComponent<Rigidbody2D>().position.y);
 			transform.rotation = Quaternion.Euler(0,0,0);
