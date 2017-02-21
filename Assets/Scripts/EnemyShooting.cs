@@ -22,12 +22,15 @@ public class EnemyShooting : MonoBehaviour
         if (cooldownTimer <= 0)
         {
             
-            cooldownTimer = bulletDelay;
-            // allow the bullet to fire.
-            Vector3 offset = transform.rotation * bulletSet;
+			cooldownTimer = bulletDelay;
 
-            GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, transform.position + offset, transform.rotation);
-            bulletGO.layer = gameObject.layer;
+			Vector3 offset = transform.rotation * bulletSet;
+
+			GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, transform.position + offset, transform.rotation);
+			bulletGO.layer = gameObject.layer;
+
         }
     }
 }
+
+

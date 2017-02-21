@@ -51,3 +51,6 @@ TagManager:
   - name: PlayerTurret
     uniqueID: 3008968741
     locked: 0
+  - name: enemy
+    uniqueID: 1737334059
+    locked: 0
