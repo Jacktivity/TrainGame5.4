@@ -24,9 +24,11 @@ GameObject:
   - 114: {fileID: 114000011085326844}
   - 114: {fileID: 114000010840710882}
   - 114: {fileID: 114000010744333558}
-  m_Layer: 0
+  - 114: {fileID: 114000013892491184}
+  - 114: {fileID: 114000012417289476}
+  m_Layer: 10
   m_Name: TankFull
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011200730704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.82, y: 7.2, z: -1}
-  m_LocalScale: {x: 0.1470863, y: 0.1470863, z: 0.1470863}
+  m_LocalPosition: {x: 8.705582, y: 117.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,12 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03cde3bb194cb294198015278f8c7713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectEnemyTarget: {fileID: 0}
-  SelectTrainTarget: {fileID: 0}
-  viewingRange: 40
+  selectEnemyTarget: {fileID: 4000012796742622, guid: 805cffdd63343064285d6b2cb423aaa0,
+    type: 2}
+  SelectTrainTarget: {fileID: 4000012796742622, guid: 805cffdd63343064285d6b2cb423aaa0,
+    type: 2}
+  viewingRange: 30
   movementSpeed: 3
   direction: 0
-  maxSpeed: 0
+  maxSpeed: -10
 --- !u!114 &114000010840710882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +135,30 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1000013062315650, guid: f525c174f53740a459776f216153c4be,
     type: 2}
   bulletDelay: 0.25
+--- !u!114 &114000012417289476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011200730704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218d1eef2df0d3f41ae9e2cf2e4c05da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 3
+--- !u!114 &114000013892491184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011200730704}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8655979d11e4f241a047aa96d919730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: -10
 --- !u!212 &212000012512306526
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -158,7 +186,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1737334059
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 90534076ac42b2c4e84aceff8abb0759, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

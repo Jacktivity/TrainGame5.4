@@ -26,6 +26,7 @@ GameObject:
   - 114: {fileID: 114000011407685526}
   - 60: {fileID: 60000013660409870}
   - 114: {fileID: 114000010912083804}
+  - 114: {fileID: 114000013963774638}
   m_Layer: 10
   m_Name: EnemyTurret
   m_TagString: Enemy
@@ -40,8 +41,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012450002506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7652667, y: 1.0486844, z: -1}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalPosition: {x: -7.8782196, y: 11.099995, z: 1}
+  m_LocalScale: {x: 2, y: -2, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,7 +117,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012450002506}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03cde3bb194cb294198015278f8c7713, type: 3}
   m_Name: 
@@ -180,6 +181,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 90
+--- !u!114 &114000013963774638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012450002506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a47661c5d39b62488a2646554120948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: -10
+  tileSizeY: -323.5
 --- !u!212 &212000013756103574
 SpriteRenderer:
   m_ObjectHideFlags: 1
